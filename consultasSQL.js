@@ -27,7 +27,7 @@ const pool = new Pool({//objeto para el logeo a la base de datos de postgreSQL
 const getListaUsuarios= async()=>{
 
     try{
-
+        console.log(`jiji`)
         const consulta={
             rowMode:`object`,
             text:`SELECT id,foto,nombre,anos_experiencia,especialidad,estado FROM skaters`
