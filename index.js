@@ -48,8 +48,10 @@ app.use(express.static(__dirname+`/public`));
 app.use(express.json());
 
 // Levanto servidor
-app.set('port', process.env.PORT || 3000); // Process.env.PORT change automatically the port IF 3000 port is being used.
-app.listen(app.get('port'), () => console.log(`Node server listening on port ${app.get('port')}!`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
 // ---------------------------------------------------------------------------------
 
 app.get('/',async function (req, res) {
