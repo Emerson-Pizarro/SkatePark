@@ -14,11 +14,11 @@ const { Pool } = require("pg");
 // Base de datos Heroku
 const pool = new Pool({//objeto para el logeo a la base de datos de postgreSQL
 
-    user: "srmywmkpgltegs",
-    host: "ec2-18-214-35-70.compute-1.amazonaws.com",
-    password: "44a466cd559952508b1bd72faacc2cd177747eea04e4c3a68c22aa2ab7ab516e",
+    user: "kedlqadphhwvrc",
+    host: "eec2-18-214-35-70.compute-1.amazonaws.com",
+    password: "52288b0cd168204e4115e5036227d8b23962e649c9d252b3f7416ad48c7503b8",
     port: 5432,
-    database: "d1v1shfqjfhmk3",
+    database: "d9j10f94vs9m6v",
 
 });
 // -------------------------------------------------------------------

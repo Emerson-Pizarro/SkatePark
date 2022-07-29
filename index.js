@@ -57,9 +57,8 @@ app.listen(PORT, () => {
 app.get('/',async function (req, res) {
 
     try {
-
-        let usuarios= await getListaUsuarios();//usuarios es un array que contiene arrays que cada uno son los usuarios
         console.log(`jaja`)
+        let usuarios= await getListaUsuarios();//usuarios es un array que contiene arrays que cada uno son los usuarios
         res.status(200).render(__dirname/+`indexView`,{usuarios});
         
     } catch (error) {
