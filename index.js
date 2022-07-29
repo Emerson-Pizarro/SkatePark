@@ -59,7 +59,7 @@ app.get('/',async function (req, res) {
     try {
         console.log(`jaja`)
         let usuarios= await getListaUsuarios();//usuarios es un array que contiene arrays que cada uno son los usuarios
-        res.status(200).render(__dirname/+`indexView`,{usuarios});
+        res.status(200).render(`indexView`,{usuarios});
         
     } catch (error) {
 
