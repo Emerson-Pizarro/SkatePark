@@ -1,0 +1,133 @@
+  <!-- plantilla que se muestra una vez que se hace login con una cuenta ya creada, y recibe los datos de la base de dato y modifica los datos si hay algun cambio -->
+
+    <div class="py-4">
+      <h2>Datos del perfil</h2>
+      <hr class="w-50" />
+
+      <form id="formulario">
+
+        <div class="form-group row w-50 m-auto">
+
+          <div class="form-group col-12 col-sm-6">
+            <label>Email</label>
+            <input
+              class="form-control m-auto"
+              value="{{data.email}}"
+              name="email"
+              readonly
+            />
+          </div>
+
+          <div class="form-group col-12 col-sm-6">
+            <label>Nombre</label>
+            <input class="form-control m-auto" value="{{data.nombre}}" name="nombre" />
+          </div>
+
+          <div class="form-group col-12 col-sm-6">
+            <label>Password</label>
+            <input
+              type="password"
+              class="form-control m-auto"
+              value="{{data.password}}"
+              id="password"
+              name="password"
+            />
+          </div>
+
+          <div class="form-group col-12 col-sm-6">
+            <label>Repita la password</label>
+            <input
+              type="password"
+              class="form-control m-auto"
+              value="{{data.password}}"
+              id="repeatPassword"
+            />
+          </div>
+
+          <div class="form-group col-12 col-sm-6">
+            <label>Años de experiencia</label>
+            <input class="form-control m-auto" value="{{data.anos_experiencia}}" name="anos_experiencia" />
+          </div>
+
+          <div class="form-group col-12 col-sm-6">
+            <label>Especialidad</label>
+            <input class="form-control m-auto" value="{{data.especialidad}}" name="especialidad"/>
+          </div>
+
+        </div>
+
+        <div class="mb-1">
+
+          <button class="btn btn-primary" type="submit">Actualizar</button>
+
+        </div>
+
+        <div>
+
+          <button class="btn btn-danger" type="button" onclick="deleteUsuario()">Eliminar cuenta</button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+
+
+    <script>  
+
+      const form = document.querySelector(`#formulario`);
+
+      form.addEventListener(`submit`,async(event)=>{
+
+        event.preventDefault();
+
+        try{
+
+          const password=$(`#password`).val();
+          const repeatPassword=$(`#repeatPassword`).val();
+
+          if(password===repeatPassword){
+
+            const formData=new FormData(event.currentTarget);
+
+            await axios.put('/usuarios',formData);
+            alert(`usuario modificado con exito`);
+            window.location.assign(`/`);
+
+          }else{
+
+            alert(`la contraseña no coincide`);
+          
+          }
+
+
+        }catch({response}){
+
+          alert(response.data.error);
+
+        }
+
+      });
+
+      const deleteUsuario=async()=>{
+
+        try{
+
+          const formData=new FormData(form);
+          await axios.delete('/usuarios',{data:formData});
+          alert(`Usuario eliminado con exito`);
+          window.location.assign(`/`);
+
+        }catch({response}){
+
+          alert(response.data.error);
+
+        }
+
+      };
+
+
+
+
+    </script>

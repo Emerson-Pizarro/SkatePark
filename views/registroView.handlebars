@@ -1,0 +1,90 @@
+
+
+<div class="py-4">
+
+  <h2>Registro</h2>
+  <hr class="w-50" />
+
+  <form id="formulario" method="post" enctype="multipart/form-data">
+
+    <div class="form-group row w-50 m-auto">
+      <!-- input email -->
+      <div class="form-group col-12 col-sm-6">
+        <label>Email</label>
+        <input type="text" class="form-control m-auto" name="email" id="email" required/>
+      </div>
+      <!-- input nombre -->
+      <div class="form-group col-12 col-sm-6">
+        <label>Nombre</label>
+        <input type="text" class="form-control m-auto" name="nombre" id="nombre" required/>
+      </div>
+      <!-- input password -->
+      <div class="form-group col-12 col-sm-6">
+        <label>Password</label>
+        <input type="text" class="form-control m-auto" name="password" id="password" required/>
+      </div>
+      <!-- input repetir password -->
+      <div class="form-group col-12 col-sm-6">
+        <label>Repita la password</label>
+        <input type="text"class="form-control m-auto" name="repeatPassword" id="repeatPassword" required/>
+      </div>
+      <!-- input años de experiencia -->
+      <div class="form-group col-12 col-sm-6">
+        <label>Años de experiencia</label>
+        <input type="number"class="form-control m-auto" name="tiempoExperiencia" id="tiempoExperiencia"/>
+      </div>
+      <!-- input especialidad -->
+      <div class="form-group col-12 col-sm-6">
+        <label>Especialidad</label>
+        <input type="text"class="form-control m-auto" name="especialidad" id="especialidad"/>
+      </div>
+      <!-- input foto de perfil -->
+      <div class="form-group col-12 col-sm-12">
+        <label>Foto de perfil</label>
+        <input type="file" name="file" id="foto"/>
+      </div>
+
+    </div>
+
+    <!-- boton registrarse -->
+    <button  class="btn btn-info mb-3" type="submit" onclick="">Registrarme</button>
+    <!-- link redireccion a login -->
+    <p><a href="/loginView"> Iniciar sesión</a></p>
+
+  </form>
+
+</div>
+<script>
+
+  const form = document.querySelector(`#formulario`);
+  form.addEventListener(`submit`,async(event)=>{
+
+    event.preventDefault();
+
+    try{
+
+      const password=$(`#password`).val();
+      const repeatPassword=$(`#repeatPassword`).val();
+
+      if(password===repeatPassword){
+
+        const formData=new FormData(event.currentTarget);
+        const response=await axios.post('/usuarios',formData);
+        alert(`usted se ha registrado exitosamente, para ingresar tiene que esperar a que el administrador acepte el registro`);
+        window.location.assign(`/`);
+
+      }else{
+
+        alert(`la contraseña no coincide`);
+      
+      }
+
+    }catch({response}){
+      
+      alert(response.data.error);
+
+    }
+
+  });
+
+</script>

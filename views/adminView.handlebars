@@ -1,0 +1,64 @@
+
+
+<div class="py-4">
+
+  <h2>Administración</h2>
+  <hr class="w-50" />
+
+  <table class="table w-50 m-auto">
+    <!-- cabecera de la tabla de lista de participantes -->
+    {{>encabezadoTabla}}
+
+    <!-- cuerpo de la lista de postulaciones -->
+    <tbody>
+
+      {{#each usuarios}}
+
+        <tr>
+
+          <th scope="row">{{this.id}}</th>
+          <td><img src="/img/{{this.foto}}" width="75" height="100" alt="{{this.foto}}"></td>
+          <td>{{this.nombre}}</td>
+          <td>{{this.anos_experiencia}}</td>
+          <td>{{this.especialidad}}</td>
+          <td><input type="checkbox" {{#if this.estado}}checked {{/if}} onclick="changeStatus({{this.id}},this)"/>
+          
+        </tr>
+
+      {{/each}}
+
+    </tbody>
+
+  </table>
+
+</div>
+
+
+<script>
+
+const changeStatus=async(idUsuario,elemento)=>{
+
+  const auth=elemento.checked;
+
+  try{
+
+    await axios.put(`http://localhost:3000/statusUsuarios`,{
+      idUsuario,
+      auth
+    });
+
+    alert(auth ?'usuario habilitado ':'usuario deshabilitado');
+
+  }catch({response}){
+
+    const{data}=response;
+    const{error}=data;
+    alert(error);
+
+  }
+
+};
+
+
+
+</script>

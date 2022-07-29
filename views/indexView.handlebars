@@ -1,0 +1,139 @@
+
+    <div class="py-4">
+
+      <h2>Lista de participantes</h2>
+
+      <hr />
+
+        <table class="table table-dark">
+            <!-- cabecera de la tabla de lista de participantes -->
+            {{>encabezadoTabla}}
+
+            <!-- cuerpo de la lista de participantes -->
+            <tbody id="tBodyIndex">
+                <!-- un tr es una fila , el th corresponde al numero al comienzo de cada fila, el td corresponde a cada columna  de una fila -->
+                {{#each usuarios}}
+
+                    <tr>
+
+                        <th scope="row">{{this.id}}</th>
+                        <td><img src="/img/{{this.foto}}" width="75" height="100" alt="{{this.foto}}"></td>
+                        <td>{{this.nombre}}</td>
+                        <td>{{this.anos_experiencia}}</td>
+                        <td>{{this.especialidad}}</td>
+                        {{#if this.estado}}<td class="text-success font-weight-bold">Aprobado</td>{{else}}<td class="text-warning font-weight-bold">En revisión</td> {{/if}}
+                       
+                    </tr>
+
+                {{/each}}
+
+            </tbody>
+
+        </table>
+
+      <!-- link para redireccionar hacia la plantilla de login -->
+      <a href="/loginView">Iniciar Sesión</a> |
+
+      <!-- link para redireccionar hacia la plantilla de datos -->
+      <a href="/registroView">Registrarme</a>
+
+    </div>
+
+
+    <script>
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

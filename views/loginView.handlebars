@@ -1,0 +1,75 @@
+
+    <div class="py-5">
+
+      <h2>Iniciar Sesión</h2>
+      <hr class="w-50" />
+
+      <!-- formulario para ingresar -->
+      <form id="formulario">
+
+        <div class="form-group">
+          <!-- input de email -->
+          <div class="form-group">
+
+            <label>Email</label>
+            <input class="form-control w-50 m-auto" name="email" id="email"/>
+
+          </div>
+          <!-- input de password -->
+          <div class="form-group">
+
+            <label>Password</label>
+            <input class="form-control w-50 m-auto" name="password" id="password"/>
+
+          </div>
+
+        </div>
+        <!-- boton para redireccionar a plantillo registro  -->
+        <button class="btn btn-success mb-3">Ingresar</button>
+        <p>¿Aún no tienes cuenta? <a href="/registroView">Regístrate</a></p>
+
+      </form>
+
+    </div>
+
+
+<script>
+
+const form = document.querySelector(`#formulario`);
+form.addEventListener(`submit`,async(event)=>{
+
+  event.preventDefault();
+
+  try{
+
+    const password=$(`#password`).val();
+    const email=$(`#email`).val();
+
+    if(password!==``&& email!==``){
+     
+      const formData=new FormData(event.currentTarget);
+      //debugger
+      const {data:token}=await axios.post('/tokens',formData);
+      alert(`Autentificacion y autorización exitosa`);
+      window.location.assign(`/usuarios?token=${token}`);
+      
+    }else{
+
+      alert(`Por favor ingrese su correo y contraseña`);
+    
+    }
+
+
+  }catch({response}){
+
+    const{data}=response;
+    const{error}=data;
+    alert(error);
+
+  }
+
+})
+
+
+
+</script>
