@@ -37,6 +37,7 @@ const getListaUsuarios= async()=>{
         }
         const result= await pool.query(consulta);
         const resultado = result.rows;
+        console.log(resultado)
         return resultado;
 
     }catch(error){
