@@ -42,7 +42,7 @@ const changeStatus=async(idUsuario,elemento)=>{
 
   try{
 
-    await axios.put(`http://localhost:3000/statusUsuarios`,{
+    await axios.put(`/statusUsuarios`,{
       idUsuario,
       auth
     });
