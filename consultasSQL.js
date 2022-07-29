@@ -18,7 +18,7 @@ const pool = new Pool({//objeto para el logeo a la base de datos de postgreSQL
     ssl: {
         rejectUnauthorized: false,
       },
-    host: "eec2-18-214-35-70.compute-1.amazonaws.com",
+    host: "ec2-18-214-35-70.compute-1.amazonaws.com",
     password: "52288b0cd168204e4115e5036227d8b23962e649c9d252b3f7416ad48c7503b8",
     port: 5432,
     database: "d9j10f94vs9m6v",
