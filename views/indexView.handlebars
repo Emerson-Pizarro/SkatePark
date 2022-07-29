@@ -1,16 +1,16 @@
 
-    <div class="py-4">
+    <div class="py-4 ">
 
-      <h2>Lista de participantes</h2>
+      <h2 class="text-center">Lista de participantes</h2>
 
       <hr />
 
-        <table class="table table-dark">
+        <table class="table table-dark ">
             <!-- cabecera de la tabla de lista de participantes -->
             {{>encabezadoTabla}}
 
             <!-- cuerpo de la lista de participantes -->
-            <tbody id="tBodyIndex">
+            <tbody id="tBodyIndex" >
                 <!-- un tr es una fila , el th corresponde al numero al comienzo de cada fila, el td corresponde a cada columna  de una fila -->
                 {{#each usuarios}}
 
@@ -32,10 +32,10 @@
         </table>
 
       <!-- link para redireccionar hacia la plantilla de login -->
-      <a href="/loginView">Iniciar Sesión</a> |
+      <a href="/loginView">Iniciar Sesión </a> |
 
       <!-- link para redireccionar hacia la plantilla de datos -->
-      <a href="/registroView">Registrarme</a>
+      <a href="/registroView"> Registrarme</a>
 
     </div>
 

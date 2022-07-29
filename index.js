@@ -49,6 +49,8 @@ app.use(express.json());
 
 // Levanto servidor
 const PORT = process.env.PORT || 3000;
+// const PORT = 3000;
+
 app.listen(PORT, () => {
     console.log(`Our app is running on port ${ PORT }`);
 });
@@ -57,7 +59,7 @@ app.listen(PORT, () => {
 app.get('/',async function (req, res) {
 
     try {
-        console.log(`jaja`)
+
         let usuarios= await getListaUsuarios();//usuarios es un array que contiene arrays que cada uno son los usuarios
         res.status(200).render(`indexView`,{usuarios});
         
