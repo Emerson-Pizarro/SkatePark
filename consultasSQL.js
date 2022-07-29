@@ -178,7 +178,7 @@ const deleteUsuario=async(email)=>{
 
 
 
-module.exports = {getListaUsuarios,setUsuarioStatus,PostNuevoUsuario,getUsuario,putUsuario,deleteUsuario};
+module.exports = {getListaUsuarios,setUsuarioStatus,PostNuevoUsuario,getUsuario,putUsuario,deleteUsuario,pool};
 
 
 
