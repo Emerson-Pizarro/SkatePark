@@ -1,16 +1,19 @@
 RUTAS:
 
 INDEX-LISTA DE PARTICIPANTES
-http://localhost:3000    
+/
 
 REGISTRO DE NUEVO USUARIO
-http://localhost:3000/registroView
+/registroView
 
 LOGIN DE USUARIO
-http://localhost:3000/loginView
+/loginView
 
 DATOS DEL USUARIO
-http://localhost:3000/usuarios?token=
+/usuarios?token=
+
+Vista del Administrador 
+/adminView
 
 
 
