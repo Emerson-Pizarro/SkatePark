@@ -1,29 +1,16 @@
 //CAPTACIÓN DE MODULOS
 const { Pool } = require("pg");
 
-// const pool = new Pool({//objeto para el logeo a la base de datos de postgreSQL
-
-//     user: "postgres",
-//     host: "localhost",
-//     password: "admin",
-//     port: 5432,
-//     database: "skatepark",
-
-// });
-
-// Base de datos Heroku
 const pool = new Pool({//objeto para el logeo a la base de datos de postgreSQL
 
-    user: "kedlqadphhwvrc",
-    ssl: {
-        rejectUnauthorized: false,
-      },
-    host: "ec2-18-214-35-70.compute-1.amazonaws.com",
-    password: "52288b0cd168204e4115e5036227d8b23962e649c9d252b3f7416ad48c7503b8",
+    user: "postgres",
+    host: "localhost",
+    password: "admin",
     port: 5432,
-    database: "d9j10f94vs9m6v",
+    database: "skatepark",
 
 });
+
 // -------------------------------------------------------------------
 
 
@@ -180,7 +167,7 @@ const deleteUsuario=async(email)=>{
 
 
 
-module.exports = {getListaUsuarios,setUsuarioStatus,PostNuevoUsuario,getUsuario,putUsuario,deleteUsuario,pool};
+module.exports = {getListaUsuarios,setUsuarioStatus,PostNuevoUsuario,getUsuario,putUsuario,deleteUsuario};
 
 
 
